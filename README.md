@@ -1,7 +1,7 @@
 # netpoll-benchmark
 
 #### Comparison to other packages
-|Package| [net](https://github.com/golang/go/tree/master/src/net "net")| [netpoll](https://github.com/hslam/netpol "netpoll")|[gnet](https://github.com/panjf2000/gnet "gnet")|[evio](https://github.com/tidwall/evio "evio")|
+|Package| [net](https://github.com/golang/go/tree/master/src/net "net")| [netpoll](https://github.com/hslam/netpoll "netpoll")|[gnet](https://github.com/panjf2000/gnet "gnet")|[evio](https://github.com/tidwall/evio "evio")|
 |:--:|:--|:--|:--|:--|
 |Sync Handler|Yes|Yes|Yes|Yes|
 |Async Handler|Yes|Yes|Yes|No|
