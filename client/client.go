@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"github.com/hslam/stats"
 	"net"
-	"sync/atomic"
 )
 
 var addr string
@@ -36,7 +35,7 @@ func main() {
 			panic(err)
 		} else {
 			defer conn.Close()
-			client := &WrkClient{conn, make([]byte, msg), make([]byte, msg*2), -1}
+			client := &WrkClient{conn, make([]byte, msg), make([]byte, msg)}
 			_, _, ok := client.Call()
 			if !ok {
 				panic("call err")
@@ -45,20 +44,15 @@ func main() {
 		}
 	}
 	stats.StartPrint(1, total, wrkClients)
-	for i := 0; i < clients; i++ {
-		fmt.Printf("%04d:%d\n", i, wrkClients[i].(*WrkClient).count)
-	}
 }
 
 type WrkClient struct {
 	net.Conn
-	msg   []byte
-	buf   []byte
-	count int64
+	msg []byte
+	buf []byte
 }
 
 func (c *WrkClient) Call() (int64, int64, bool) {
-	atomic.AddInt64(&c.count, 1)
 	var err error
 	_, err = c.Conn.Write(c.msg)
 	if err != nil {

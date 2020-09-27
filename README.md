@@ -1,5 +1,12 @@
 # netpoll-benchmark
 
+## Benchmark
+**Network QPS**
+<img src="https://raw.githubusercontent.com/hslam/netpoll-benchmark/master/netpoll-qps.png"  alt="mock 0ms" align=center>
+
+**Mocking 1ms QPS**
+<img src="https://raw.githubusercontent.com/hslam/netpoll-benchmark/master/netpoll-mock-time-qps.png" alt="mock 1ms" align=center>
+
 net
 ```
 ./client -addr=:9999 -total=1000000 -clients=1 -msg=512
