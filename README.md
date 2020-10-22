@@ -10,4 +10,4 @@
 |Rescheduling|Yes|Yes|No|No|
 |Compatible With The net.Conn|Yes|Yes|No|No|
 
-<img src="https://raw.githubusercontent.com/hslam/netpoll-benchmark/master/netpoll-qps.png" width = "440" height = "330" alt="mock 0ms" align=center> <img src="https://raw.githubusercontent.com/hslam/netpoll-benchmark/master/netpoll-mock-time-qps.png" width = "440" height = "330" alt="mock 1ms" align=center>
+<img src="https://raw.githubusercontent.com/hslam/netpoll-benchmark/master/netpoll-qps.png" width = "400" height = "300" alt="mock 0ms" align=center> <img src="https://raw.githubusercontent.com/hslam/netpoll-benchmark/master/netpoll-mock-time-qps.png" width = "400" height = "300" alt="mock 1ms" align=center>
