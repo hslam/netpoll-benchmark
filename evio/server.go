@@ -30,7 +30,6 @@ func main() {
 					c.SetContext(in)
 					c.Wake()
 				}(c, in)
-				return
 			} else {
 				out = in
 			}
