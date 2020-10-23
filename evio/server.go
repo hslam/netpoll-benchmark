@@ -21,10 +21,22 @@ func main() {
 	var events evio.Events
 	events.NumLoops = 20
 	events.Data = func(c evio.Conn, in []byte) (out []byte, action evio.Action) {
-		if sleep > 0 {
-			time.Sleep(time.Millisecond * time.Duration(sleep))
+		if in != nil {
+			if async {
+				go func(c evio.Conn, in []byte) {
+					if sleep > 0 {
+						time.Sleep(time.Millisecond * time.Duration(sleep))
+					}
+					c.SetContext(in)
+					c.Wake()
+				}(c, in)
+				return
+			} else {
+				out = in
+			}
+		} else {
+			out = c.Context().([]byte)
 		}
-		out = in
 		return
 	}
 	if err := evio.Serve(events, "tcp://localhost"+addr); err != nil {
