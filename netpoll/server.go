@@ -19,9 +19,9 @@ func init() {
 
 func main() {
 	var handler = &netpoll.DataHandler{
-		Shared:     false,
+		NoShared:   true,
 		NoCopy:     true,
-		BufferSize: 512,
+		BufferSize: 1024,
 		HandlerFunc: func(req []byte) (res []byte) {
 			if sleep > 0 {
 				time.Sleep(time.Millisecond * time.Duration(sleep))
